@@ -126,6 +126,9 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\SpecFlowAmazon.feature.cs">
@@ -133,40 +136,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SpecFlowAmazon.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SpecFlowCheckLocation.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowCheckLocation.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\SpecFlowGoogle.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowGoogle.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steps\GoogleSteps.cs" />
-    <Compile Include="Steps\ReturningLocationDataBasedOnCountryAndZipCodeSteps.cs" />
-    <Compile Include="Steps\SpecFlowAmazonSteps.cs" />
-    <Compile Include="TestingBot.cs" />
-    <Compile Include="TestingBotDriver.cs" />
+    <Compile Include="Steps\AmazonSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\SpecFlowAmazon.feature">
       <Generator>SpecFlow.Tools.MsBuild.Generation</Generator>
       <LastGenOutput>SpecFlowAmazon.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\SpecFlowCheckLocation.feature">
-      <Generator>SpecFlow.Tools.MsBuild.Generation</Generator>
-      <LastGenOutput>SpecFlowCheckLocation.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\SpecFlowGoogle.feature">
-      <Generator>SpecFlow.Tools.MsBuild.Generation</Generator>
-      <LastGenOutput>SpecFlowGoogle.feature.cs</LastGenOutput>
-    </None>
     <None Include="App2.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\packages\WebDriver.ChromeDriver.win32.78.0.3904.70\content\chromedriver.exe">
+      <Link>chromedriver.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
